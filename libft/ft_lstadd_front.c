@@ -6,13 +6,13 @@
 /*   By: ddiniz-m <ddiniz-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 15:20:10 by ddiniz-m          #+#    #+#             */
-/*   Updated: 2022/11/11 12:41:12 by ddiniz-m         ###   ########.fr       */
+/*   Updated: 2023/03/01 14:25:08 by ddiniz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+void	ft_lstadd_front(t_stack **lst, t_stack *new)
 {
 	new->next = *lst;
 	*lst = new;
@@ -21,8 +21,8 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 /* int main()
 {
 	int i;
-	t_list *temp;
-	t_list *head;
+	t_stack *temp;
+	t_stack *head;
 
 	i = 0;
 	char *str[4] = {"To", "The", "New", "World"};
