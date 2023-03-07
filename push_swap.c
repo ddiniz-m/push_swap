@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ddiniz-m <ddiniz-m@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:04:28 by ddiniz-m          #+#    #+#             */
-/*   Updated: 2023/03/03 18:55:12 by ddiniz-m         ###   ########.fr       */
+/*   Updated: 2023/03/06 19:38:01 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_lsts(struct s_stack **head_a, struct s_stack **head_b)
+void	print_lsts(t_stack **stack_a, t_stack **stack_b)
 {
-	struct s_stack *temp1;
-	struct s_stack *temp2;
-	temp1 = *head_a;
-	temp2 = *head_b;
-	if (temp1 && temp2)
+	t_stack *temp1;
+	t_stack *temp2;
+	temp1 = *stack_a;
+	temp2 = *stack_b;
+	if (temp1 != NULL && temp2 != NULL)
 	{
 		while (temp1 && temp2)
 		{
@@ -38,92 +38,122 @@ void	print_lsts(struct s_stack **head_a, struct s_stack **head_b)
 	printf("- -\na b\n");
 }
 
-struct s_stack *stack_a(int len, char **list)
+void	stack_init(t_stack **stack, char **list)
 {
 	int	i;
 	struct s_stack *node;
-	struct s_stack *head;
 	
-	i = 2;
-	head = ft_lstnew(ft_atoi(list[1]));
-	while(i <= len)
+	i = 1;
+	while(list[i])
 	{
 		node = ft_lstnew(ft_atoi(list[i]));
-		ft_lstadd_back(&head, node);
+		ft_lstadd_back(stack, node);
 		i++;
 	}
-	return (head);
 }
 
-struct s_stack *stack_b(int len)
+void	push(t_stack **stack_a, t_stack **stack_b)
 {
-	int	i;
-	struct s_stack *node;
-	struct s_stack *head;
+	t_stack *temp;
+	t_stack *head_a;
+	t_stack *head_b;
 	
-	i = 2;
-	head = ft_lstnew(0);
-	while(i <= len)
+	head_a = *stack_a;
+	head_b = *stack_b;
+	temp = head_b;
+	head_b = head_b->next;
+	*stack_b = head_b;
+
+	if (!head_a)
 	{
-		node = ft_lstnew(0);
-		ft_lstadd_back(&head, node);
-		i++;
+		head_a = temp;
+		head_a->next = NULL;
+		*stack_a = head_a;
 	}
-	return (head);
+	else
+	{
+		temp->next = head_a;
+		*stack_a = temp;
+	}
 }
 
-void	del(int i)
+void	swap(t_stack **stack)
 {
-	i = 0;
-}
-
-void	pa(t_stack **head_a, t_stack **head_b)
-{
-	struct s_stack *temp1;
-	struct s_stack *temp2;
-	
-	temp1 = *head_a;
-	temp2 = *head_b;
-	
+	t_stack *head;
+	t_stack *temp;
 	int i = 0;
-	while(1)
+
+	head = *stack;
+	if(!head && !head->next)
 	{
-		if (temp1->data != 0)
-		{
-			temp1 = temp1->next;
-			(temp1 + i++)->data = temp1->data;
-		}
-		else
-		{
-			temp1->data = temp2->data;
-			break;
-		}
+		printf("Error\n");
+		return ;
 	}
-	*head_b = (*head_b)->next;
+	temp = head;
+	i = temp->data;
+	head->data = head->next->data;
+	head->next->data = i;
 }
 
-/* void	pb(t_stack **head_a, t_stack **head_b)
+void	rotate(t_stack **stack)
 {
-	struct s_stack *temp1;
-	struct s_stack *temp2;
+	t_stack *head;
+	t_stack *last;
+
+	head = *stack;
+	last = ft_lstlast(head);
+	*stack = head->next;
+	head->next = NULL;
+	last->next = head;
+}
+
+void	r_rotate(t_stack **stack)
+{
+	t_stack *head;
+	t_stack *last;
+
+	head = *stack;
+	last = ft_lstlast(head);
+	*stack = last;
+	last->next = head;
+	while(head->data != 4)
+	{
+		head = head->next;
+	}
+	head->next = NULL;
 	
-	ft_lstadd_front(head_b, ft_lstnew(0));
-	temp1 = *head_a;
-	temp2 = *head_b;
-	
-	temp2->data = temp1->data;
-	*head_a = (*head_a)->next;
-	ft_lstadd_back(head_a, ft_lstnew(0));
-} */
+}
+
+void	pa (t_stack **stack_a, t_stack **stack_b)
+{
+	push(stack_a, stack_b);
+}
+
+void	pb (t_stack **stack_a, t_stack **stack_b)
+{
+	push(stack_b, stack_a);
+}
+
+void	stack_free(t_stack **stack)
+{
+	t_stack *head;
+	t_stack *temp;
+
+	head = *stack;
+	while (head)
+	{
+		temp = head;
+		head = head->next;
+		free(temp);
+	}
+	free(stack);
+}
 
 int	main(int ac, char **av)
 {
 	if (ac == 1)
 		return (printf("Error\nNot enough arguments\n"));
 
-	struct s_stack *head_a;
-	struct s_stack *head_b;
-	
 	int i = 1;
 	while(i < ac)
 	{
@@ -131,26 +161,34 @@ int	main(int ac, char **av)
 			return (printf("Error\n"));
 		i++;
 	}
-	head_a = stack_b(ac - 1);
-	head_b = stack_a(ac - 1, av);
 	
-	print_lsts(&head_a, &head_b);
+	t_stack **stack_a;
+	t_stack **stack_b;
 	
-	/* if (head_a)
-	{
-		int i = 0;
-		while (i++ < 5)
-			pb(&head_a, &head_b);
-	} */
+	stack_a = (t_stack**)malloc(sizeof(t_stack));
+	stack_b = (t_stack**)malloc(sizeof(t_stack));
 	
-	if (head_b)
-	{
-		int i = 0;
-		while (i++ < 2)
-			pa(&head_a, &head_b);
-	}
+	*stack_a = NULL;
+	*stack_b = NULL;
+
+	stack_init(stack_a, av);
+	
+	print_lsts(stack_a, stack_b);
+	
+	/* pb(stack_a, stack_b);
+	pb(stack_a, stack_b); */
+
+	/* swap(stack_a); */
+
+	/* rotate(stack_a); */
+
+	r_rotate(stack_a);
 
 	printf("\n");
-	print_lsts(&head_a, &head_b);
+	print_lsts(stack_a, stack_b);
+	
+	stack_free(stack_a);
+	stack_free(stack_b);
+	
 	return (0);
 }
