@@ -6,11 +6,11 @@
 /*   By: ddiniz-m <ddiniz-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 15:20:30 by ddiniz-m          #+#    #+#             */
-/*   Updated: 2023/03/01 14:25:53 by ddiniz-m         ###   ########.fr       */
+/*   Updated: 2023/03/07 15:19:55 by ddiniz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../push_swap.h"
 
 int	ft_lstsize(t_stack *lst)
 {
