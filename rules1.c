@@ -6,7 +6,7 @@
 /*   By: ddiniz-m <ddiniz-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:53:38 by ddiniz-m          #+#    #+#             */
-/*   Updated: 2023/03/07 15:38:25 by ddiniz-m         ###   ########.fr       */
+/*   Updated: 2023/03/08 15:55:28 by ddiniz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 
 void	sa(t_stack **stack, int i)
 {
-	if (ft_lstsize(*stack) <= 1)
-		return;
+	t_stack *temp;
+
+	temp = *stack;
+	if (ft_lstsize(temp) <= 1)
+		return ;
 	swap(stack);
 	if (i != 1)
 		printf("sa\n");
@@ -23,8 +26,11 @@ void	sa(t_stack **stack, int i)
 
 void	sb(t_stack **stack, int i)
 {
-	if (ft_lstsize(*stack) <= 1)
-		return;
+	t_stack *temp;
+
+	temp = *stack;
+	if (ft_lstsize(temp) <= 1)
+		return ;
 	swap(stack);
 	if (i != 1)
 		printf("sb\n");
@@ -37,17 +43,17 @@ void	ss(t_stack **stack_a, t_stack **stack_b)
 	printf("ss\n");
 }
 
-void	pa (t_stack **stack_a, t_stack **stack_b)
+void	pa(t_stack **stack_a, t_stack **stack_b)
 {
-	if (!stack_b)
+	if (!*stack_b)
 		return ;
 	push(stack_a, stack_b);
 	printf("pa\n");
 }
 
-void	pb (t_stack **stack_a, t_stack **stack_b)
+void	pb(t_stack **stack_a, t_stack **stack_b)
 {
-	if (!stack_b)
+	if (!*stack_a)
 		return ;
 	push(stack_b, stack_a);
 	printf("pb\n");

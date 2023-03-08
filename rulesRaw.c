@@ -6,34 +6,33 @@
 /*   By: ddiniz-m <ddiniz-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:51:33 by ddiniz-m          #+#    #+#             */
-/*   Updated: 2023/03/07 15:36:21 by ddiniz-m         ###   ########.fr       */
+/*   Updated: 2023/03/08 13:44:46 by ddiniz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push(t_stack **stackDest, t_stack **stackSrc)
+void	push(t_stack **stack_dest, t_stack **stack_src)
 {
 	t_stack	*temp;
-	t_stack	*headDest;
-	t_stack	*headSrc;
-	
-	headDest = *stackDest;
-	headSrc = *stackSrc;
-	temp = headSrc;
-	headSrc = headSrc->next;
-	*stackSrc = headSrc;
+	t_stack	*head_dest;
+	t_stack	*head_src;
 
-	if (!headDest)
+	head_dest = *stack_dest;
+	head_src = *stack_src;
+	temp = head_src;
+	head_src = head_src->next;
+	*stack_src = head_src;
+	if (!head_dest)
 	{
-		headDest = temp;
-		headDest->next = NULL;
-		*stackDest = headDest;
+		head_dest = temp;
+		head_dest->next = NULL;
+		*stack_dest = head_dest;
 	}
 	else
 	{
-		temp->next = headDest;
-		*stackDest = temp;
+		temp->next = head_dest;
+		*stack_dest = temp;
 	}
 }
 
@@ -60,7 +59,7 @@ void	rotate(t_stack **stack)
 {
 	t_stack	*head;
 	t_stack	*last;
-	
+
 	if (ft_lstsize(*stack) == 0)
 		return ;
 	head = *stack;
