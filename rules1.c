@@ -6,7 +6,7 @@
 /*   By: ddiniz-m <ddiniz-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:53:38 by ddiniz-m          #+#    #+#             */
-/*   Updated: 2023/03/08 15:55:28 by ddiniz-m         ###   ########.fr       */
+/*   Updated: 2023/03/10 15:20:12 by ddiniz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	sa(t_stack **stack, int i)
 	t_stack *temp;
 
 	temp = *stack;
-	if (ft_lstsize(temp) <= 1)
+	if (ft_lstsize(stack) <= 1)
 		return ;
 	swap(stack);
 	if (i != 1)
@@ -29,7 +29,7 @@ void	sb(t_stack **stack, int i)
 	t_stack *temp;
 
 	temp = *stack;
-	if (ft_lstsize(temp) <= 1)
+	if (ft_lstsize(stack) <= 1)
 		return ;
 	swap(stack);
 	if (i != 1)

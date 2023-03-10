@@ -6,7 +6,7 @@
 /*   By: ddiniz-m <ddiniz-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:05:44 by ddiniz-m          #+#    #+#             */
-/*   Updated: 2023/03/08 13:44:31 by ddiniz-m         ###   ########.fr       */
+/*   Updated: 2023/03/10 16:51:33 by ddiniz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,13 @@ void				print_lsts(t_stack **stack_a, t_stack **stack_b);
 void				stack_free(t_stack **stack);
 int					check_list(int ac, char **av);
 int					check_dups(int ac, char **av);
+int					check_sort(t_stack **stack);
+int					min_pos(t_stack **stack);
+int					get_min(t_stack **stack);
+
+void				sort3(t_stack **stack_a, t_stack **stack_b);
+void				sort5(t_stack** stack_a, t_stack** stack_b);
+void				big_sort(t_stack **stack_a, t_stack **stack_b);
 
 void				sa(t_stack **stack, int i);
 void				sb(t_stack **stack, int i);
@@ -50,12 +57,13 @@ void				rra(t_stack **stack, int i);
 void				rrb(t_stack **stack, int i);
 void				rrr(t_stack **stack_a, t_stack **stack_b);
 
+
 //----------------------------------LIBFT-------------------------------------
 int					ft_atoi(const char *str);
 int					ft_strcmp(char *s1, char *s2);
 t_stack				*ft_lstnew(int data);
 void				ft_lstadd_front(t_stack **lst, t_stack *new);
-int					ft_lstsize(t_stack *lst);
+int					ft_lstsize(t_stack **lst);
 t_stack				*ft_lstlast(t_stack *lst);
 void				ft_lstadd_back(t_stack **lst, t_stack *new);
 void				ft_lstdelone(t_stack *lst, void (*del)(int));

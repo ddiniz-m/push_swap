@@ -6,7 +6,7 @@
 /*   By: ddiniz-m <ddiniz-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:51:33 by ddiniz-m          #+#    #+#             */
-/*   Updated: 2023/03/08 13:44:46 by ddiniz-m         ###   ########.fr       */
+/*   Updated: 2023/03/10 15:19:37 by ddiniz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	rotate(t_stack **stack)
 	t_stack	*head;
 	t_stack	*last;
 
-	if (ft_lstsize(*stack) == 0)
+	if (ft_lstsize(stack) == 0)
 		return ;
 	head = *stack;
 	last = ft_lstlast(head);
@@ -77,7 +77,7 @@ void	r_rotate(t_stack **stack)
 	t_stack	*last;
 
 	i = 0;
-	j = ft_lstsize(*stack);
+	j = ft_lstsize(stack);
 	if (!*stack)
 		return ;
 	head = *stack;

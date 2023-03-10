@@ -6,11 +6,25 @@
 /*   By: ddiniz-m <ddiniz-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 15:21:44 by ddiniz-m          #+#    #+#             */
-/*   Updated: 2023/03/08 15:47:52 by ddiniz-m         ###   ########.fr       */
+/*   Updated: 2023/03/10 15:43:16 by ddiniz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	stack_init(t_stack **stack, char **list)
+{
+	int				i;
+	struct s_stack	*node;
+
+	i = 1;
+	while (list[i])
+	{
+		node = ft_lstnew(ft_atoi(list[i]));
+		ft_lstadd_back(stack, node);
+		i++;
+	}
+}
 
 int	check_list(int ac, char **av)
 {
@@ -52,20 +66,6 @@ int	check_dups(int ac, char **av)
 		i = j + 1;
 	}
 	return (0);
-}
-
-void	stack_init(t_stack **stack, char **list)
-{
-	int				i;
-	struct s_stack	*node;
-
-	i = 1;
-	while (list[i])
-	{
-		node = ft_lstnew(ft_atoi(list[i]));
-		ft_lstadd_back(stack, node);
-		i++;
-	}
 }
 
 void	print_lsts(t_stack **stack_a, t_stack **stack_b)
