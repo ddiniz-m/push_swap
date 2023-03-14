@@ -5,62 +5,69 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/10 15:44:41 by ddiniz-m          #+#    #+#             */
-/*   Updated: 2023/03/14 18:35:44 by marvin           ###   ########.fr       */
+/*   Created: 2023/03/07 15:21:44 by ddiniz-m          #+#    #+#             */
+/*   Updated: 2023/03/14 18:30:47 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	min_pos(t_stack **stack)
+int	check_list(int ac, char **av)
 {
-	int		i;
-	t_stack	*temp;
+	int	i;
 
 	i = 1;
-	temp = *stack;
-	while (temp)
+	if (check_dups(ac, av) != 0)
+		return (1);
+	while (i <= ac - 1)
 	{
-		if (temp->data == get_min(stack))
-			return (i);
-		i++;
-		temp = temp->next;
+		if (ft_strcmp(av[i], "0") == 0)
+			i++;
+		else
+		{
+			if (ft_atoi(av[i]) == 0)
+				return (printf("Error\nArgument not an integer\n"));
+			i++;
+		}
 	}
 	return (0);
 }
 
-int	get_min(t_stack **stack)
-{
-	int		i;
-	t_stack	*temp;
-	
-	temp = *stack;
-	i = temp->data;
-	while(temp)
-	{
-		if(temp->next && i > temp->next->data)
-		{
-			i = temp->next->data;
-			temp = temp->next;
-		}
-		else
-			temp = temp->next;
-	}
-	return (i);
-}
-
-int	get_max(t_stack **stack)
+int	check_dups(int ac, char **av)
 {
 	int	i;
-	t_stack	*temp;
+	int	j;
 
-	i = 0;
+	j = 1;
+	i = j + 1;
+	while (j < ac - 1)
+	{
+		while (i < ac)
+		{
+			if (ft_strcmp(av[j], av[i]) == 0)
+				return (printf("Error\nThere are duplicate arguments\n"));
+			i++;
+		}
+		j++;
+		i = j + 1;
+	}
+	return (0);
+}
+
+int	check_sort(t_stack **stack)
+{
+	t_stack	*temp;
+	
+	if(!*stack)
+		return(-2);
 	temp = *stack;
 	while(temp)
 	{
-		if (temp->data > i)
-			i = temp->data;
+		if (!temp->next)
+			break ;
+		if(temp->data > temp->next->data)
+			return (-1);
 		temp = temp->next;
 	}
-	return(i);
+	return(0);
 }
