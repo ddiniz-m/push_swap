@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bits.c                                             :+:      :+:    :+:   */
+/*   binary.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ddiniz-m <ddiniz-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 16:41:03 by ddiniz-m          #+#    #+#             */
-/*   Updated: 2023/03/14 18:29:07 by marvin           ###   ########.fr       */
+/*   Updated: 2023/03/15 18:11:35 by ddiniz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	*int_to_binary(int num)
 {
-	int	i;
+	int			i;
 	static int	binary[32];
 
 	i = 0;
@@ -41,32 +41,44 @@ int	digits(int num)
 	return (i);
 }
 
-int	array_to_int(int *arr, int size)
+//check if number in position i is 0 or 1
+int	test(int num, int i)
 {
-	int	i;
+	int	j;
 	int	buf;
 
-	buf = 0;
-	i = size - 1;
-	while (i >= 0)
-	{	
-		buf = (10 * buf) + arr[i];
-		i--;
+	j = 0;
+	buf = num;
+	if (i == 0)
+	{
+		if (buf % 2 == 0)
+			return (0);
+		if (buf % 2 == 1)
+			return (1);
 	}
-	return(buf);
+	while(j < i)
+	{
+		buf /= 2;
+		j++;
+	}
+	if (buf % 2 == 0)
+		return (0);
+	if (buf % 2 == 1)
+		return (1);
+	return 0;
 }
 
-t_stack	**stack_to_binary(t_stack **stack)
+/* t_stack	**stack_to_binary(t_stack **stack)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	temp = *stack;
 	(*stack)->data = array_to_int(int_to_binary((*stack)->data), digits((*stack)->data));
 	rotate(stack);
-	while((*stack)->data != temp->data)
+	while ((*stack)->data != temp->data)
 	{
 		(*stack)->data = array_to_int(int_to_binary((*stack)->data), digits((*stack)->data));
 		rotate(stack);
 	}
-	return(stack);
-}
+	return (stack);
+} */

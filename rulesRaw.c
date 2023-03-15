@@ -6,7 +6,7 @@
 /*   By: ddiniz-m <ddiniz-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:51:33 by ddiniz-m          #+#    #+#             */
-/*   Updated: 2023/03/10 15:19:37 by ddiniz-m         ###   ########.fr       */
+/*   Updated: 2023/03/15 14:31:57 by ddiniz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	swap(t_stack **stack)
 	head = *stack;
 	if (!head && !head->next)
 	{
-		printf("Error\n");
+		ft_printf("Error\n");
 		return ;
 	}
 	temp = head;

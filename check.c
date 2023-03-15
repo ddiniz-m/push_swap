@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ddiniz-m <ddiniz-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 15:21:44 by ddiniz-m          #+#    #+#             */
-/*   Updated: 2023/03/14 18:30:47 by marvin           ###   ########.fr       */
+/*   Updated: 2023/03/15 18:11:22 by ddiniz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	check_list(int ac, char **av)
 		else
 		{
 			if (ft_atoi(av[i]) == 0)
-				return (printf("Error\nArgument not an integer\n"));
+				return (write(2, "Error\n", 7));
 			i++;
 		}
 	}
@@ -45,7 +45,7 @@ int	check_dups(int ac, char **av)
 		while (i < ac)
 		{
 			if (ft_strcmp(av[j], av[i]) == 0)
-				return (printf("Error\nThere are duplicate arguments\n"));
+				return (write(2, "Error\n", 7));
 			i++;
 		}
 		j++;
@@ -57,17 +57,17 @@ int	check_dups(int ac, char **av)
 int	check_sort(t_stack **stack)
 {
 	t_stack	*temp;
-	
-	if(!*stack)
-		return(-2);
+
+	if (!*stack)
+		return (-2);
 	temp = *stack;
-	while(temp)
+	while (temp)
 	{
 		if (!temp->next)
 			break ;
-		if(temp->data > temp->next->data)
+		if (temp->data > temp->next->data)
 			return (-1);
 		temp = temp->next;
 	}
-	return(0);
+	return (0);
 }

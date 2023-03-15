@@ -5,62 +5,47 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddiniz-m <ddiniz-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/10 15:44:41 by ddiniz-m          #+#    #+#             */
-/*   Updated: 2023/03/15 14:15:52 by ddiniz-m         ###   ########.fr       */
+/*   Created: 2022/07/12 14:41:40 by ddiniz-m          #+#    #+#             */
+/*   Updated: 2023/03/15 14:33:14 by ddiniz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int	min_pos(t_stack **stack)
+int	ft_putnbr(int nb)
 {
-	int		i;
-	t_stack	*temp;
+	int	i;
 
-	i = 1;
-	temp = *stack;
-	while (temp)
+	i = 0;
+	if (nb < 0)
 	{
-		if (temp->data == get_min(stack))
-			return (i);
-		i++;
-		temp = temp->next;
+		if (nb == -2147483648)
+			return (write(1, "-2147483648", 11));
+		i += ft_putchar('-');
+		i += ft_putnbr(-nb);
 	}
-	return (0);
-}
-
-int	get_min(t_stack **stack)
-{
-	int		i;
-	t_stack	*temp;
-
-	temp = *stack;
-	i = temp->data;
-	while (temp)
+	else
 	{
-		if (temp->next && i > temp->next->data)
-		{
-			i = temp->next->data;
-			temp = temp->next;
-		}
-		else
-			temp = temp->next;
+		if (nb > 9)
+			i += ft_putnbr(nb / 10);
+		i += ft_putchar((nb % 10) + 48);
 	}
 	return (i);
 }
 
-int	get_max(t_stack **stack)
+int	ft_putchar(char c)
 {
-	int		i;
-	t_stack	*temp;
+	return (write(1, &c, 1));
+}
+
+int	ft_putstr(char *str)
+{
+	int	i;
 
 	i = 0;
-	temp = *stack;
-	while (temp)
-	{
-		if (temp->data > i)
-			i = temp->data;
-		temp = temp->next;
-	}
+	if (str == NULL)
+		str = "(null)";
+	while (*str != '\0')
+		i += write(1, str++, 1);
 	return (i);
 }
