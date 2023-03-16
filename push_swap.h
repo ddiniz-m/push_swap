@@ -6,7 +6,7 @@
 /*   By: ddiniz-m <ddiniz-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:05:44 by ddiniz-m          #+#    #+#             */
-/*   Updated: 2023/03/15 17:50:19 by ddiniz-m         ###   ########.fr       */
+/*   Updated: 2023/03/16 16:12:06 by ddiniz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int					get_min(t_stack **stack);
 
 int					*int_to_binary(int num);
 int					digits(int num);
-int					test(int num, int i);
+int					zero_or_one(int num, int i);
 t_stack				**stack_to_binary(t_stack **stack);
 int					ft_power(int nb, int power);
 void				print_list(t_stack **stack);
@@ -76,13 +76,13 @@ void				ft_lstiter(t_stack *lst, void (*f)(void *));
 t_stack				*ft_lstmap(t_stack *lst, void *(*f)(void *),
 						void (*del)(void *));
 //----------------------------------PRINTF-------------------------------------
-int				ft_printf(const char *str, ...);
-int				ft_puthexa(unsigned long long nbr,
-					unsigned long long base, int i);
-int				ft_check(char str, va_list args);
-int				ft_putstr(char *str);
-int				ft_putchar(char c);
-int				ft_putnbr(int nb);
-int				ft_putptr(unsigned long nbr);
+int					ft_printf(const char *str, ...);
+int					ft_puthexa(unsigned long long nbr,
+						unsigned long long base, int i);
+int					ft_check(char str, va_list args);
+int					ft_putstr(char *str);
+int					ft_putchar(char c);
+int					ft_putnbr(int nb);
+int					ft_putptr(unsigned long nbr);
 
 #endif

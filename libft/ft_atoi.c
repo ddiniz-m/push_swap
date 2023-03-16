@@ -6,7 +6,7 @@
 /*   By: ddiniz-m <ddiniz-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 12:43:45 by ddiniz-m          #+#    #+#             */
-/*   Updated: 2023/03/15 17:58:07 by ddiniz-m         ###   ########.fr       */
+/*   Updated: 2023/03/16 15:25:30 by ddiniz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,10 @@ int	ft_atoi(const char *str)
 	while (*str)
 	{	
 		num = (*str - '0') + (num * 10);
-		if (*str < '0' && *str > '9' )
+		if (*str < '0' || *str > 57)
 			return (0);
 		str++;
 	}
-	if ((*str + 1 == '\0') && (num * sign == -2147483648))
-		return (num * sign);
 	if ((num * sign > 2147483647) || (num * sign < -2147483648))
 		return (0);
 	return (num * sign);
@@ -41,5 +39,5 @@ int	ft_atoi(const char *str)
 
 /* int	main()
 {
-	printf("%d\n", ft_atoi("-2147483650"));
+	printf("%i\n", ft_atoi("-21474836478"));
 } */
