@@ -6,7 +6,7 @@
 /*   By: ddiniz-m <ddiniz-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 15:42:17 by ddiniz-m          #+#    #+#             */
-/*   Updated: 2023/03/16 18:13:02 by ddiniz-m         ###   ########.fr       */
+/*   Updated: 2023/03/17 19:10:05 by ddiniz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,6 @@ void	radix_sort(t_stack **stack_a, t_stack **stack_b, int size)
 		}
 		while (*stack_b)
 			pa(stack_a, stack_b);
-		if (check_sort(stack_a) == 0)
-			return ;
 		i++;
 		j = 0;
 	}

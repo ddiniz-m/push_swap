@@ -6,7 +6,7 @@
 /*   By: ddiniz-m <ddiniz-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:05:44 by ddiniz-m          #+#    #+#             */
-/*   Updated: 2023/03/16 16:12:06 by ddiniz-m         ###   ########.fr       */
+/*   Updated: 2023/03/17 18:27:02 by ddiniz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,11 @@ void				swap(t_stack **stack);
 void				rotate(t_stack **stack);
 void				r_rotate(t_stack **stack);
 
+void				printlist(t_stack **stack);
+
 void				stack_init(t_stack **stack, char **list);
 void				stack_free(t_stack **stack);
+void				ranking(char **list);
 int					check_list(int ac, char **av);
 int					check_dups(int ac, char **av);
 int					check_sort(t_stack **stack);
@@ -49,6 +52,7 @@ int					ft_power(int nb, int power);
 void				print_list(t_stack **stack);
 
 int					sort(t_stack **stack_a, t_stack **stack_b, int ac);
+void				radix_sort(t_stack **stack_a, t_stack **stack_b, int size);
 
 void				sa(t_stack **stack, int i);
 void				sb(t_stack **stack, int i);
@@ -62,6 +66,7 @@ void				rra(t_stack **stack, int i);
 void				rrb(t_stack **stack, int i);
 void				rrr(t_stack **stack_a, t_stack **stack_b);
 //----------------------------------LIBFT-------------------------------------
+char				*ft_itoa(int n);
 int					ft_atoi(const char *str);
 int					ft_strcmp(char *s1, char *s2);
 t_stack				*ft_lstnew(int data);
