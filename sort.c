@@ -6,7 +6,7 @@
 /*   By: ddiniz-m <ddiniz-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 15:42:17 by ddiniz-m          #+#    #+#             */
-/*   Updated: 2023/03/17 19:10:05 by ddiniz-m         ###   ########.fr       */
+/*   Updated: 2023/03/22 14:37:23 by ddiniz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,14 +69,12 @@ void	radix_sort(t_stack **stack_a, t_stack **stack_b, int size)
 {
 	int	i;
 	int	j;
-	int	maxbits;
 
 	i = 0;
-	j = 0;
-	maxbits = digits(get_max((stack_a)));
-	while (i <= maxbits)
+	while (check_sort(stack_a) != 0)
 	{
-		while (*stack_a && j < size)
+		j = 1;
+		while (j <= size)
 		{
 			if (i > digits((*stack_a)->data)
 				|| zero_or_one(((*stack_a)->data), i) == 0)
@@ -88,7 +86,6 @@ void	radix_sort(t_stack **stack_a, t_stack **stack_b, int size)
 		while (*stack_b)
 			pa(stack_a, stack_b);
 		i++;
-		j = 0;
 	}
 }
 
@@ -97,11 +94,13 @@ int	sort(t_stack **stack_a, t_stack **stack_b, int ac)
 	int	i;
 
 	i = ft_lstsize(stack_a);
+	if (ac == 3)
+		sa(stack_a, 0);
 	if (ac == 4)
 		sort3(stack_a);
-	else if (ac == 5 || ac == 6)
+	if (ac == 5 || ac == 6)
 		sort5(stack_a, stack_b);
-	else
+	if (ac >= 7)
 		radix_sort(stack_a, stack_b, i);
 	return (0);
 }

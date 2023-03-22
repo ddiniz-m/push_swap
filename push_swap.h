@@ -6,7 +6,7 @@
 /*   By: ddiniz-m <ddiniz-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:05:44 by ddiniz-m          #+#    #+#             */
-/*   Updated: 2023/03/17 18:27:02 by ddiniz-m         ###   ########.fr       */
+/*   Updated: 2023/03/22 14:18:41 by ddiniz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,37 +23,30 @@
 typedef struct s_stack
 {
 	int				data;
+	int				index;
 	struct s_stack	*next;
 }					t_stack;
 
 //--------------------------------PUSH_SWAP-----------------------------------
+
+void				stack_init(t_stack **stack, char **list);
+void				stack_free(t_stack **stack);
+void				ranking(t_stack **stack);
+void				index_to_data(t_stack **stack);
+int					check_list(int ac, char **av);
+int					check_sort(t_stack **stack);
+int					check_dups(int ac, char **av);
+int					min_pos(t_stack **stack);
+int					get_min(t_stack **stack);
+int					digits(int num);
+int					zero_or_one(int num, int i);
+int					sort(t_stack **stack_a, t_stack **stack_b, int ac);
+void				radix_sort(t_stack **stack_a, t_stack **stack_b, int size);
+
 void				push(t_stack **stack_a, t_stack **stack_b);
 void				swap(t_stack **stack);
 void				rotate(t_stack **stack);
 void				r_rotate(t_stack **stack);
-
-void				printlist(t_stack **stack);
-
-void				stack_init(t_stack **stack, char **list);
-void				stack_free(t_stack **stack);
-void				ranking(char **list);
-int					check_list(int ac, char **av);
-int					check_dups(int ac, char **av);
-int					check_sort(t_stack **stack);
-int					min_pos(t_stack **stack);
-int					get_max(t_stack **stack);
-int					get_min(t_stack **stack);
-
-int					*int_to_binary(int num);
-int					digits(int num);
-int					zero_or_one(int num, int i);
-t_stack				**stack_to_binary(t_stack **stack);
-int					ft_power(int nb, int power);
-void				print_list(t_stack **stack);
-
-int					sort(t_stack **stack_a, t_stack **stack_b, int ac);
-void				radix_sort(t_stack **stack_a, t_stack **stack_b, int size);
-
 void				sa(t_stack **stack, int i);
 void				sb(t_stack **stack, int i);
 void				ss(t_stack **stack_a, t_stack **stack_b);

@@ -6,7 +6,7 @@
 /*   By: ddiniz-m <ddiniz-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:54:42 by ddiniz-m          #+#    #+#             */
-/*   Updated: 2023/03/15 14:31:38 by ddiniz-m         ###   ########.fr       */
+/*   Updated: 2023/03/21 13:29:51 by ddiniz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	rb(t_stack **stack, int i)
 {
 	rotate(stack);
 	if (i != 1)
-		ft_printf("sa\n");
+		ft_printf("rb\n");
 }
 
 void	rr(t_stack **stack_a, t_stack **stack_b)

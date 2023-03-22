@@ -6,7 +6,7 @@
 /*   By: ddiniz-m <ddiniz-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:04:28 by ddiniz-m          #+#    #+#             */
-/*   Updated: 2023/03/17 20:05:30 by ddiniz-m         ###   ########.fr       */
+/*   Updated: 2023/03/22 14:25:54 by ddiniz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	printlist(t_stack **stack)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	temp = *stack;
-	while(temp)
+	while (temp)
 	{
 		ft_printf("%i\n", temp->data);
 		temp = temp->next;
@@ -29,11 +29,8 @@ int	main(int ac, char **av)
 	t_stack	**stack_a;
 	t_stack	**stack_b;
 
-	if (ac == 1)
-	{
-		write(2, "Error\n", 7);
+	if (ac <= 2)
 		return (0);
-	}
 	if (check_list(ac, av) > 0)
 		return (0);
 	stack_a = (t_stack **)malloc(sizeof(t_stack));
@@ -41,12 +38,10 @@ int	main(int ac, char **av)
 	*stack_a = NULL;
 	*stack_b = NULL;
 	stack_init(stack_a, av);
-	/* ranking(av);
-	return (0); */
+	ranking(stack_a);
 	if (check_sort(stack_a) == 0)
 		return (0);
 	sort(stack_a, stack_b, ac);
-	printlist(stack_a);
 	stack_free(stack_a);
 	stack_free(stack_b);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: ddiniz-m <ddiniz-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 15:44:41 by ddiniz-m          #+#    #+#             */
-/*   Updated: 2023/03/15 14:15:52 by ddiniz-m         ###   ########.fr       */
+/*   Updated: 2023/03/22 14:16:00 by ddiniz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,22 +45,6 @@ int	get_min(t_stack **stack)
 		}
 		else
 			temp = temp->next;
-	}
-	return (i);
-}
-
-int	get_max(t_stack **stack)
-{
-	int		i;
-	t_stack	*temp;
-
-	i = 0;
-	temp = *stack;
-	while (temp)
-	{
-		if (temp->data > i)
-			i = temp->data;
-		temp = temp->next;
 	}
 	return (i);
 }

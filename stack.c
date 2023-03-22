@@ -12,51 +12,42 @@
 
 #include "push_swap.h"
 
-/* int	arr_size(char **list)
+void	index_to_data(t_stack **stack)
 {
-	int	i;
+	t_stack	*temp;
+
+	temp = *stack;
+	while (temp)
+	{
+		temp->data = temp->index;
+		temp = temp->next;
+	}
+}
+
+void	ranking(t_stack **stack)
+{
+	int		i;
+	t_stack	*temp1;
+	t_stack	*temp2;
 
 	i = 0;
-	while(list[i])
-		i++;
-	return(i - 1);
-}
-
-void	arr_min(char **list, int n)
-{
-	int	i;
-	int	k;
-	int	size;
-
-	i = 1;
-	k = 1;
-	size = arr_size(list);
-	while (n < size && i < size)
+	temp1 = *stack;
+	temp2 = temp1->next;
+	while (temp1)
 	{
-		if (ft_atoi(list[i + 1]) && ft_atoi(list[i]) < ft_atoi(list[i + 1]))
-			k = i;
-		i++;
+		if (temp1->data > temp2->data)
+			i++;
+		temp2 = temp2->next;
+		if (!temp2)
+		{
+			temp1->index = i;
+			temp1 = temp1->next;
+			temp2 = *stack;
+			i = 0;
+		}
 	}
-	list[k] = ft_itoa(n);
-	return ;
+	index_to_data(stack);
 }
-
-void	ranking(char **list)
-{
-	int	i;
-	int	n;
-	int	size;
-
-	i = 1;
-	n = 0;
-	size = arr_size(list);
-	while(n <= size)
-		arr_min(list, n++);
-	while(list[i])
-		printf("%i\n", ft_atoi(list[i++]));
-	return ;
-} */
-
 
 void	stack_init(t_stack **stack, char **list)
 {
