@@ -6,7 +6,7 @@
 /*   By: ddiniz-m <ddiniz-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:05:44 by ddiniz-m          #+#    #+#             */
-/*   Updated: 2023/03/22 14:18:41 by ddiniz-m         ###   ########.fr       */
+/*   Updated: 2023/03/22 14:39:18 by ddiniz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,20 +59,12 @@ void				rra(t_stack **stack, int i);
 void				rrb(t_stack **stack, int i);
 void				rrr(t_stack **stack_a, t_stack **stack_b);
 //----------------------------------LIBFT-------------------------------------
-char				*ft_itoa(int n);
 int					ft_atoi(const char *str);
 int					ft_strcmp(char *s1, char *s2);
 t_stack				*ft_lstnew(int data);
-int					ft_recursive_power(int nb, int power);
-void				ft_lstadd_front(t_stack **lst, t_stack *new);
 int					ft_lstsize(t_stack **lst);
 t_stack				*ft_lstlast(t_stack *lst);
 void				ft_lstadd_back(t_stack **lst, t_stack *new);
-void				ft_lstdelone(t_stack *lst, void (*del)(int));
-void				ft_lstclear(t_stack **lst, void (*del)(int));
-void				ft_lstiter(t_stack *lst, void (*f)(void *));
-t_stack				*ft_lstmap(t_stack *lst, void *(*f)(void *),
-						void (*del)(void *));
 //----------------------------------PRINTF-------------------------------------
 int					ft_printf(const char *str, ...);
 int					ft_puthexa(unsigned long long nbr,

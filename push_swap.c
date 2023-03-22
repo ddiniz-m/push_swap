@@ -6,23 +6,11 @@
 /*   By: ddiniz-m <ddiniz-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:04:28 by ddiniz-m          #+#    #+#             */
-/*   Updated: 2023/03/22 14:25:54 by ddiniz-m         ###   ########.fr       */
+/*   Updated: 2023/03/22 14:43:13 by ddiniz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	printlist(t_stack **stack)
-{
-	t_stack	*temp;
-
-	temp = *stack;
-	while (temp)
-	{
-		ft_printf("%i\n", temp->data);
-		temp = temp->next;
-	}
-}
 
 int	main(int ac, char **av)
 {

@@ -4,9 +4,7 @@ PRT_SRC = ft_printf/ft_printf.c  ft_printf/ft_check.c ft_printf/ft_puthexa.c\
 		ft_printf/utils.c
 
 SRC_LIB = libft/ft_atoi.c libft/ft_lstnew.c libft/ft_lstadd_back.c\
-		libft/ft_lstlast.c libft/ft_lstadd_front.c libft/ft_lstclear.c\
-		libft/ft_lstdelone.c libft/ft_lstsize.c libft/ft_strcmp.c\
-		libft/ft_power.c libft/ft_itoa.c
+		libft/ft_lstlast.c libft/ft_lstsize.c libft/ft_strcmp.c
 
 SRCS = push_swap.c rulesRaw.c rules1.c rules2.c rules3.c utils.c sort.c\
 		check.c binary.c stack.c $(SRC_LIB) $(PRT_SRC)
