@@ -6,7 +6,7 @@
 /*   By: ddiniz-m <ddiniz-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:05:44 by ddiniz-m          #+#    #+#             */
-/*   Updated: 2023/03/22 14:39:18 by ddiniz-m         ###   ########.fr       */
+/*   Updated: 2023/03/22 18:13:22 by ddiniz-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct s_stack
 
 void				stack_init(t_stack **stack, char **list);
 void				stack_free(t_stack **stack);
+void				free_all(t_stack **stack_a, t_stack **stack_b);
 void				ranking(t_stack **stack);
 void				index_to_data(t_stack **stack);
 int					check_list(int ac, char **av);

@@ -12,6 +12,12 @@
 
 #include "push_swap.h"
 
+void	free_all(t_stack **stack_a, t_stack **stack_b)
+{
+	stack_free(stack_a);
+	stack_free(stack_b);
+}
+
 void	index_to_data(t_stack **stack)
 {
 	t_stack	*temp;
